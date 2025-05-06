@@ -1,7 +1,7 @@
 import os
 
 class Settings:
-    PROJECT_NAME = "AEON"
+    PROJECT_NAME = "AeonProject"
     VERSION = "1.0.0"
 
 settings = Settings()
