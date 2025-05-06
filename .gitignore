@@ -12,9 +12,6 @@ venv/
 # LlamaIndex data or temp files
 tmp_docs/
 
-# VSCode settings
-.vscode/
-
 # macOS
 .DS_Store
 

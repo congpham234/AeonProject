@@ -1,6 +1,11 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, StorageContext, load_index_from_storage
+from llama_index.core import (
+    VectorStoreIndex,
+    SimpleDirectoryReader,
+    StorageContext,
+    load_index_from_storage,
+)
 from llama_index.core.query_engine import RetrieverQueryEngine
 import os
 
@@ -8,6 +13,7 @@ router = APIRouter()
 
 INDEX_DIR = "storage"
 index = None  # Cached in memory
+
 
 # ---------- Helper ----------
 def get_or_load_index():
@@ -25,8 +31,10 @@ def get_or_load_index():
 class DocumentInput(BaseModel):
     content: str
 
+
 class QueryInput(BaseModel):
     query: str
+
 
 class DeleteInput(BaseModel):
     doc_id: str
@@ -34,12 +42,13 @@ class DeleteInput(BaseModel):
 
 # ---------- Routes ----------
 
+
 @router.post("/update-index")
 def update_index(doc: DocumentInput):
     global index
 
     os.makedirs("tmp_docs", exist_ok=True)
-    file_path = f"tmp_docs/temp_doc.txt"
+    file_path = "tmp_docs/temp_doc.txt"
     with open(file_path, "w") as f:
         f.write(doc.content)
 

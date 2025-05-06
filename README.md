@@ -20,4 +20,7 @@ http://127.0.0.1:8000/docs
 Or access ReDoc docs:
 http://127.0.0.1:8000/redoc
 
-
+6. Run the following command to find lint issue
+```
+pre-commit run --all-files
+```

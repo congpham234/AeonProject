@@ -1,0 +1,3 @@
+[tool.ruff]
+exclude = ["venv", ".venv", "env", "site-packages"]
+src = ["app"]
